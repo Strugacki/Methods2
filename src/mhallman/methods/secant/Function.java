@@ -23,13 +23,23 @@ public class Function {
 		minusX = -1 * x;	
 		//function e^x - 2 - x
 		fun = new DerivativeStructure(1,ex,-2,free,minusX,free);
-		fun1 = fun.getPartialDerivative(1);
+		setFun1(fun.getPartialDerivative(1));
 	}
 	
 	
 	double value(double x){
 		this.x=x;
 		return this.fun.getValue();
+	}
+
+
+	public double getFun1() {
+		return fun1;
+	}
+
+
+	public void setFun1(double fun1) {
+		this.fun1 = fun1;
 	}
 	
 }
