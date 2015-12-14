@@ -4,6 +4,11 @@ public class Secant {
 
 	private double ps;//starting point
 	private double pk;//ending point
+	private Function function;
+	
+	public Secant(){
+		Function function = new Function();
+	}
 	
 	
 	/**
@@ -32,10 +37,11 @@ public class Secant {
 	}
 	
 	
-	public double nextValue(double fx0,double fx1, double x0, double x1){
-		return x1 - ( (fx1 * (x1-x0))/( (fx1 - fx0) ));
-	}
 	
+	public double nextValue(double x0, double x1){
+		double value = (x1 - (this.function.value(x1)*(x1-x0))/(this.function.value(x1)-this.function.value(x0)));
+		return value;
+	}
 	
 	
 }
