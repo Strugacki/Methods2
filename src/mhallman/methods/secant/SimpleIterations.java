@@ -4,7 +4,7 @@ public class SimpleIterations {
 	private double startingPoint;
 	private int stepNumber;
 	private double functionResult;
-	private double[] results = new double[stepNumber];
+	private double result;
 	private Function function = new Function();
 
 	public int getStepNumber() {
@@ -22,13 +22,13 @@ public class SimpleIterations {
 	public void setStartingPoint(double startingPoint) {
 		this.startingPoint = startingPoint;
 	}	
-	public double solveIteration(int stepNumber, double startingPoint) {
+	public void solveIteration(int stepNumber, double startingPoint) {
 		for(int i=0; i<stepNumber; i++) {
 						
 			functionResult = function.value(startingPoint);
 			startingPoint = functionResult;
-			results[i] = functionResult; 
+			result = functionResult; 
+			System.out.println(result);
 		}
-		return results[stepNumber];
 	}
 }
