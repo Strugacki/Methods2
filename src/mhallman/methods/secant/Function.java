@@ -10,6 +10,7 @@ public class Function {
 	private double x;
 	private DerivativeStructure f;
 	private DerivativeStructure fun;
+	private double fun1;
 	private DerivativeStructure free;
 	private DerivativeStructure ex;
 	double minusX;
@@ -22,6 +23,7 @@ public class Function {
 		minusX = -1 * x;	
 		//function e^x - 2 - x
 		fun = new DerivativeStructure(1,ex,-2,free,minusX,free);
+		fun1 = fun.getPartialDerivative(1);
 	}
 	
 	
