@@ -3,6 +3,9 @@ package mhallman.methods.secant;
 public class SimpleIterations {
 	private double startingPoint;
 	private int stepNumber;
+	private double functionResult;
+	private double[] results = new double[stepNumber];
+	private Function function = new Function();
 
 	public int getStepNumber() {
 		return stepNumber;
@@ -21,15 +24,11 @@ public class SimpleIterations {
 	}	
 	public double solveIteration(int stepNumber, double startingPoint) {
 		for(int i=0; i<stepNumber; i++) {
-			
-			/*TO-DO solving function with attached library
-			
-			functionResult = solvingOurFunction(startingPoint);
+						
+			functionResult = function.value(startingPoint);
 			startingPoint = functionResult;
-			tableWithResults[i] = functionResult; 
-			
-			*/
+			results[i] = functionResult; 
 		}
-		//return tableWithResults[];
+		return results[stepNumber];
 	}
 }
