@@ -22,7 +22,7 @@ public class SimpleIterations {
 	public void setStartingPoint(double startingPoint) {
 		this.startingPoint = startingPoint;
 	}	
-	public void solveIteration(int stepNumber, double startingPoint) {
+	public void solveIteration() {
 		for(int i=0; i<stepNumber; i++) {
 						
 			functionResult = function.value(startingPoint);

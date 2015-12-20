@@ -7,53 +7,54 @@ public class main {
 	public static void main(String[] args) {
 		
 		Secant secant = new Secant();
+		SimpleIterations simpleIter = new SimpleIterations();
+		Tangent tangent = new Tangent();
+		double startingPoint;
+		double endPoint;
 		double x0;
 		double x1;
 		double x2;
 		double[] nextValues;
 		int numberOfLoop=0;
 		Scanner in = new Scanner(System.in);
-		System.out.print("Podaj poczÄ…tek przedziaÅ‚u: ");
+		System.out.print("Podaj pocz¹tek: ");
 		if(in.hasNextDouble()){
-			secant.setPs(in.nextDouble());
+			startingPoint=in.nextDouble();
+			secant.setPs(startingPoint);
+			simpleIter.setStartingPoint(startingPoint);
+			tangent.setStartingPoint(startingPoint);
 		}else{
-			System.err.println("Podano nieprawidÅ‚owÄ… wartoÅ›Ä‡!!");
+			System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
 			System.exit(0);
 		}
 		System.out.println();
-		System.out.print("Podaj koniec przedzialu: ");
+		System.out.print("Podaj koniec przedzia³u: ");
 		if(in.hasNextDouble()){
 			secant.setPk(in.nextDouble());
 			if(secant.getPs()==secant.getPk()/* || (secant.getPs()*secant.getPk() > 0)*/){
-				System.err.println("Podano nieprawidÅ‚owÄ… wartoÅ›Ä‡!!");
+				System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
 				System.exit(0);
 			}
 		}
 		System.out.println();
-		System.out.print("Podaj iloÅ›Ä‡ obrotÃ³w: ");
+		System.out.print("Podaj iloœæ obrotów: ");
 		if(in.hasNextInt()){
 			numberOfLoop=in.nextInt();
-			nextValues = new double[numberOfLoop];
+			secant.setIterations(numberOfLoop);
+			simpleIter.setStepNumber(numberOfLoop);
 		}else{
 			nextValues = new double[0];
-			System.err.println("Podano nieprawidÅ‚owÄ… wartoÅ›Ä‡!!");
+			System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
 			System.exit(0);
 		}
 		
 		
-		System.out.println("PrzedziaÅ‚ to <"+secant.getPs()+","+secant.getPk()+">");
-		System.out.println("IloÅ›Ä‡ iteracji: "+numberOfLoop);
+		System.out.println("Przedzia³‚ to <"+secant.getPs()+","+secant.getPk()+">");
+		System.out.println("Iloœæ iteracji: "+numberOfLoop);
 		
-		x0=secant.getPs();
-		x1=secant.getPk();
 		
-		for(int i=1;i<=numberOfLoop;i++){
-			x2=secant.nextValue(x0,x1);
-			x0=x1;
-			x1=x2;
-			nextValues[i]=x2;
-			System.out.println("Kolejny wynik: "+x2);
-		}
+		secant.solveSecant();
+		simpleIter.solveIteration();
 	}
 
 }

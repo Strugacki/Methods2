@@ -10,7 +10,7 @@ public class Function {
 	private double x;
 	private DerivativeStructure f;
 	private DerivativeStructure fun;
-	private double fun1;
+	private DerivativeStructure fun1;
 	private DerivativeStructure free;
 	private DerivativeStructure ex;
 	double minusX;
@@ -23,7 +23,13 @@ public class Function {
 		minusX = -1 * x;	
 		//function e^x - 2 - x
 		fun = new DerivativeStructure(1,ex,-2,free,minusX,free);
-		setFun1(fun.getPartialDerivative(1));
+		fun1 = new DerivativeStructure(1,ex,-1,free);
+	}
+	
+	
+	public double getDerivativeValue(double x){
+		this.x=x;
+		return fun1.getValue();
 	}
 	
 	
@@ -32,14 +38,5 @@ public class Function {
 		return this.fun.getValue();
 	}
 
-
-	public double getFun1() {
-		return fun1;
-	}
-
-
-	public void setFun1(double fun1) {
-		this.fun1 = fun1;
-	}
 	
 }

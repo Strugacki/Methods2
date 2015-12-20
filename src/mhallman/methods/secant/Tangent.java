@@ -22,7 +22,7 @@ public class Tangent {
 	
 	public void solveTangent(double startingPoint, int stepNumber) {
 		for(int i=0; i<stepNumber; i++) {
-			functionResult = startingPoint - Math.pow(function.getFun1(),-1) * function.value(startingPoint);
+			functionResult = startingPoint - (function.value(startingPoint) / function.getDerivativeValue(startingPoint));
 			startingPoint = functionResult;
 			System.out.println(functionResult);
 		}
