@@ -37,11 +37,9 @@ public class Tangent {
 		for(int i=0; i<stepNumber; i++) {
 			functionResult = startingPoint - (function.value(startingPoint) / function.getDerivativeValue(startingPoint));
 			startingPoint = round(functionResult,4);
-			//System.out.println("Kolejny wynik: "+startingPoint);
 			System.out.println("Kolejny wynik: "+startingPoint);
 		}while(mainZeroValue-startingPoint>0.0001);
 		System.out.println("Potrzeba by³o tyle: "+i+" obrotów");
-		//}
 	}
 	
 	public double getMainZeroValue() {
