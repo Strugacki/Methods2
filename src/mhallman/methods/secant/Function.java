@@ -32,7 +32,6 @@ public class Function {
 	
 	
 	double value(double x){
-		System.out.println("Wesz³o");
 		f = new DerivativeStructure(1,0, 0, E);
 		this.x=x;
 		this.ex = this.f.pow(java.lang.Math.round(x));

@@ -5,7 +5,6 @@ public class Tangent {
 	private double startingPoint;
 	private int stepNumber;
 	private double functionResult;
-	private double result;
 	private Function function = new Function();
 	public double getStartingPoint() {
 		return startingPoint;
@@ -20,11 +19,11 @@ public class Tangent {
 		this.stepNumber = stepNumber;
 	}
 	
-	public void solveTangent(double startingPoint, int stepNumber) {
+	public void solveTangent() {
 		for(int i=0; i<stepNumber; i++) {
 			functionResult = startingPoint - (function.value(startingPoint) / function.getDerivativeValue(startingPoint));
 			startingPoint = functionResult;
-			System.out.println(functionResult);
+			System.out.println("Kolejny wynik: "+functionResult);
 		}
 	}
 }

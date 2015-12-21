@@ -28,7 +28,7 @@ public class SimpleIterations {
 			functionResult = function.value(startingPoint);
 			startingPoint = functionResult;
 			result = functionResult; 
-			System.out.println(result);
+			System.out.println("Kolejny wynik: "+result);
 		}
 	}
 }

@@ -50,9 +50,18 @@ public class main {
 		System.out.println("Przedzia³‚ to <"+secant.getPs()+","+secant.getPk()+">");
 		System.out.println("Iloœæ iteracji: "+numberOfLoop);
 		
-		
+		System.out.println();
+		System.out.println("Metoda siecznych:");
+		System.out.println();
 		secant.solveSecant();
+		System.out.println();
+		System.out.println("Metoda iteracji:");
+		System.out.println();
 		simpleIter.solveIteration();
+		System.out.println();
+		System.out.println("Metoda stycznych:");
+		System.out.println();
+		tangent.solveTangent();
 	}
 
 }
