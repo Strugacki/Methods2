@@ -9,9 +9,12 @@ public class main {
 		Secant secant = new Secant();
 		SimpleIterations simpleIter = new SimpleIterations();
 		Tangent tangent = new Tangent();
-		double startingPoint;
-		double endPoint;
+		double startingPoint=0;
+		double endPoint=0;
 		int numberOfLoop=0;
+		double zeroValue= -1.8414;
+		double zeroValue1= 1.1462;
+		double mainZeroValue = 0;
 		Scanner in = new Scanner(System.in);
 		System.out.print("Podaj pocz¹tek: ");
 		if(in.hasNextDouble()){
@@ -33,6 +36,18 @@ public class main {
 				System.exit(0);
 			}
 		}
+		if(zeroValue>=startingPoint && zeroValue<=endPoint){
+			mainZeroValue = zeroValue;
+			secant.setMainZeroValue(mainZeroValue);
+		}
+		else if(zeroValue1>=startingPoint && zeroValue1<=endPoint && mainZeroValue!=0){
+			System.out.println("B³¹d");
+			System.exit(0);
+		}else if(zeroValue1>=startingPoint && zeroValue1<=endPoint){
+			mainZeroValue = zeroValue1;
+			secant.setMainZeroValue(mainZeroValue);
+		}
+		System.out.println("Wybrane miejsce zerowe: "+mainZeroValue);
 		System.out.println();
 		System.out.print("Podaj iloœæ obrotów: ");
 		if(in.hasNextInt()){

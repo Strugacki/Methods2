@@ -1,5 +1,8 @@
 package mhallman.methods.secant;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Secant {
 
 	private double ps;//starting point
@@ -21,6 +24,13 @@ public class Secant {
 		function = new Function();
 	}
 	
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    BigDecimal bd = new BigDecimal(value);
+	    bd = bd.setScale(places, RoundingMode.HALF_UP);
+	    return bd.doubleValue();
+	}
 	
 	public int getIterations() {
 		return iterations;
@@ -62,25 +72,13 @@ public class Secant {
 		fx1=this.function.value(x1);
 		fx0=this.function.value(x0);
 		double value = (x1 - (fx1*(x1-x0))/(fx1-fx0));
-		return value;
+		return round(value,3);
 	}
 	
 	public void solveSecant(){
 		double x0=this.getPs();
 		double x1=this.getPk();
-		if(zeroValue>=x0 && zeroValue<=x1){
-			mainZeroValue = zeroValue;
-		}
-		else if(zeroValue1>=x0 && zeroValue1<=x1 && mainZeroValue!=0){
-			System.out.println("B³¹d");
-			System.exit(0);
-		}else if(zeroValue1>=x0 && zeroValue1<=x1){
-			mainZeroValue = zeroValue1;
-		}
-		System.out.println("Wybrane miejsce zerowe: "+mainZeroValue);
-		//while(mainZeroValue-wysranyWynikZFora>0.1)
 		nextValues = new double[100];
-		//for(int i=0;i<this.getIterations();i++){
 		do{
 			x2=this.nextValue(x0,x1);
 			x0=x1;
@@ -88,8 +86,18 @@ public class Secant {
 			nextValues[i]=x2;
 			i++;
 			System.out.println("Kolejny wynik: "+x2);
-		}while(mainZeroValue-x2>0.1);
+		}while(mainZeroValue-x2>0.001);
 		System.out.println("Potrzeba by³o tyle: "+i+" obrotów");
+	}
+
+
+	public double getMainZeroValue() {
+		return mainZeroValue;
+	}
+
+
+	public void setMainZeroValue(double mainZeroValue) {
+		this.mainZeroValue = mainZeroValue;
 	}
 	
 	

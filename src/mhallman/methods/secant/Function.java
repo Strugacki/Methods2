@@ -2,6 +2,9 @@ package mhallman.methods.secant;
 
 
 import java.lang.Math;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.apache.commons.math3.analysis.differentiation.DerivativeStructure;
 
 public class Function {
@@ -20,38 +23,45 @@ public class Function {
 	public Function(){
 	}
 	
+	 public static double round(double value, int places) {
+		    if (places < 0) throw new IllegalArgumentException();
+
+		    BigDecimal bd = new BigDecimal(value);
+		    bd = bd.setScale(places, RoundingMode.HALF_UP);
+		    return bd.doubleValue();
+		}
 	
 	public double getDerivativeValue(double x){
 		f = new DerivativeStructure(1,0, 0, E);
 		this.x=x;
-		this.ex = this.f.pow(java.lang.Math.round(x));
+		this.ex = this.f.pow(round(x,3));
 		this.free = this.f.pow(0);
 		//function e^x - 2 - x
 		this.fun1 = new DerivativeStructure(1,ex,-1,free);
-		return fun1.getValue();
+		return round(fun1.getValue(),3);
 	}
 	
 	
 	double value(double x){
 		f = new DerivativeStructure(1,0, 0, E);
 		this.x=x;
-		this.ex = this.f.pow(java.lang.Math.round(x));
+		this.ex = this.f.pow(round(x,3));
 		this.free = this.f.pow(0);
 		this.minusX = -1 * x;	
 		//function e^x - 2 - x
 		this.fun = new DerivativeStructure(1,ex,-2,free,minusX,free);
-		return this.fun.getValue();
+		return round(this.fun.getValue(),3);
 	}
 	
 	double getTangentValue(double x){
 		f = new DerivativeStructure(1,0, 0, E);
 		this.x=x;
-		this.ex = this.f.pow(java.lang.Math.round(x));
+		this.ex = this.f.pow(round(x,3));
 		this.free = this.f.pow(0);
 		this.minusX = -1 * x;	
 		//function e^x - 2 - x
 		this.fun2 = new DerivativeStructure(2,free,-1,ex);
-		return this.fun2.getValue();
+		return round(this.fun2.getValue(),3);
 	}
 
 	
