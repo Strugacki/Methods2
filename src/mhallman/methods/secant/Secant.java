@@ -4,6 +4,8 @@ public class Secant {
 
 	private double ps;//starting point
 	private double pk;//ending point
+	double fx1;
+	double fx0;
 	private Function function;
 	private int iterations;
 	private double nextValues[];
@@ -11,7 +13,7 @@ public class Secant {
 
 
 	public Secant(){
-		Function function = new Function();
+		function = new Function();
 	}
 	
 	
@@ -52,13 +54,20 @@ public class Secant {
 	
 	
 	public double nextValue(double x0, double x1){
-		double value = (x1 - (this.function.value(x1)*(x1-x0))/(this.function.value(x1)-this.function.value(x0)));
+		System.out.println("Wesz³o");
+		fx1=this.function.value(x1);
+		System.out.println("fx1"+fx1);
+		fx0=this.function.value(x0);
+		System.out.println("fx0"+fx0);
+		double value = (x1 - (fx1*(x1-x0))/(fx1-fx0));
 		return value;
 	}
 	
 	public void solveSecant(){
 		double x0=this.getPs();
+		System.out.println(x0);
 		double x1=this.getPk();
+		System.out.println(x1);
 		nextValues = new double[this.getIterations()];
 		for(int i=0;i<this.getIterations();i++){
 			double x2=this.nextValue(x0,x1);

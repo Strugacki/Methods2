@@ -14,7 +14,6 @@ public class main {
 		double x0;
 		double x1;
 		double x2;
-		double[] nextValues;
 		int numberOfLoop=0;
 		Scanner in = new Scanner(System.in);
 		System.out.print("Podaj pocz¹tek: ");
@@ -43,7 +42,6 @@ public class main {
 			secant.setIterations(numberOfLoop);
 			simpleIter.setStepNumber(numberOfLoop);
 		}else{
-			nextValues = new double[0];
 			System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
 			System.exit(0);
 		}
