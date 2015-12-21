@@ -23,12 +23,10 @@ public class SimpleIterations {
 		this.startingPoint = startingPoint;
 	}	
 	public void solveIteration() {
-		for(int i=0; i<stepNumber; i++) {
-						
-			functionResult = function.value(startingPoint);
+		for(int i=0; i<stepNumber; i++) {		
+			functionResult = function.getTangentValue(startingPoint);
 			startingPoint = functionResult;
-			result = functionResult; 
-			System.out.println(result);
+			System.out.println("Kolejny wynik: "+startingPoint);
 		}
 	}
 }
