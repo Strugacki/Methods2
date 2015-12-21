@@ -38,7 +38,7 @@ public class Function {
 		this.free = this.f.pow(0);
 		//function e^x - 2 - x
 		this.fun1 = new DerivativeStructure(1,ex,-1,free);
-		return round(fun1.getValue(),3);
+		return round(fun1.getValue(),4);
 	}
 	
 	
@@ -50,7 +50,7 @@ public class Function {
 		this.minusX = -1 * x;	
 		//function e^x - 2 - x
 		this.fun = new DerivativeStructure(1,ex,-2,free,minusX,free);
-		return round(this.fun.getValue(),3);
+		return round(this.fun.getValue(),4);
 	}
 	
 	double getTangentValue(double x){
@@ -61,7 +61,7 @@ public class Function {
 		this.minusX = -1 * x;	
 		//function e^x - 2 - x
 		this.fun2 = new DerivativeStructure(2,free,-1,ex);
-		return round(this.fun2.getValue(),3);
+		return round(this.fun2.getValue(),4);
 	}
 
 	

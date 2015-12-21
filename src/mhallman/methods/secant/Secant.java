@@ -72,7 +72,7 @@ public class Secant {
 		fx1=this.function.value(x1);
 		fx0=this.function.value(x0);
 		double value = (x1 - (fx1*(x1-x0))/(fx1-fx0));
-		return round(value,3);
+		return round(value,4);
 	}
 	
 	public void solveSecant(){
@@ -86,7 +86,7 @@ public class Secant {
 			nextValues[i]=x2;
 			i++;
 			System.out.println("Kolejny wynik: "+x2);
-		}while(mainZeroValue-x2>0.001);
+		}while(mainZeroValue-x2>0.0001);
 		System.out.println("Potrzeba by³o tyle: "+i+" obrotów");
 	}
 

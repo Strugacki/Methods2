@@ -46,6 +46,8 @@ public class main {
 		}else if(zeroValue1>=startingPoint && zeroValue1<=endPoint){
 			mainZeroValue = zeroValue1;
 			secant.setMainZeroValue(mainZeroValue);
+			simpleIter.setMainZeroValue(mainZeroValue);
+			tangent.setMainZeroValue(mainZeroValue);
 		}
 		System.out.println("Wybrane miejsce zerowe: "+mainZeroValue);
 		System.out.println();
