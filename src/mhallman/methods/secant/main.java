@@ -41,6 +41,7 @@ public class main {
 			numberOfLoop=in.nextInt();
 			secant.setIterations(numberOfLoop);
 			simpleIter.setStepNumber(numberOfLoop);
+			tangent.setStepNumber(numberOfLoop);
 		}else{
 			System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
 			System.exit(0);

@@ -11,6 +11,7 @@ public class Function {
 	private DerivativeStructure f;
 	private DerivativeStructure fun;
 	private DerivativeStructure fun1;
+	private DerivativeStructure fun2;
 	private DerivativeStructure free;
 	private DerivativeStructure ex;
 	double minusX;
@@ -40,6 +41,17 @@ public class Function {
 		//function e^x - 2 - x
 		this.fun = new DerivativeStructure(1,ex,-2,free,minusX,free);
 		return this.fun.getValue();
+	}
+	
+	double getTangentValue(double x){
+		f = new DerivativeStructure(1,0, 0, E);
+		this.x=x;
+		this.ex = this.f.pow(java.lang.Math.round(x));
+		this.free = this.f.pow(0);
+		this.minusX = -1 * x;	
+		//function e^x - 2 - x
+		this.fun2 = new DerivativeStructure(2,free,-1,ex);
+		return this.fun2.getValue();
 	}
 
 	

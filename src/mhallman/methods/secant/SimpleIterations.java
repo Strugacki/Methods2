@@ -5,7 +5,11 @@ public class SimpleIterations {
 	private int stepNumber;
 	private double functionResult;
 	private double result;
-	private Function function = new Function();
+	private Function function;
+	
+	public SimpleIterations(){
+		function = new Function();
+	}
 
 	public int getStepNumber() {
 		return stepNumber;
@@ -24,11 +28,10 @@ public class SimpleIterations {
 	}	
 	public void solveIteration() {
 		for(int i=0; i<stepNumber; i++) {
-						
-			functionResult = function.value(startingPoint);
-			startingPoint = functionResult;
-			result = functionResult; 
-			System.out.println("Kolejny wynik: "+result);
+			double x = this.getStartingPoint();			
+			functionResult = function.value(x);
+			x = functionResult;
+			System.out.println("Kolejny wynik: "+x);
 		}
 	}
 }
