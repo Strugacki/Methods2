@@ -6,6 +6,8 @@ public class Secant {
 	private double pk;//ending point
 	double fx1;
 	double fx0;
+	double zeroValue=-1.8414;
+	double zeroValue1=1.1462;
 	private Function function;
 	private int iterations;
 	private double nextValues[];

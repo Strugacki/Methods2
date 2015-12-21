@@ -11,9 +11,6 @@ public class main {
 		Tangent tangent = new Tangent();
 		double startingPoint;
 		double endPoint;
-		double x0;
-		double x1;
-		double x2;
 		int numberOfLoop=0;
 		Scanner in = new Scanner(System.in);
 		System.out.print("Podaj pocz¹tek: ");
@@ -29,7 +26,8 @@ public class main {
 		System.out.println();
 		System.out.print("Podaj koniec przedzia³u: ");
 		if(in.hasNextDouble()){
-			secant.setPk(in.nextDouble());
+			endPoint=in.nextDouble();
+			secant.setPk(endPoint);
 			if(secant.getPs()==secant.getPk()/* || (secant.getPs()*secant.getPk() > 0)*/){
 				System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
 				System.exit(0);
