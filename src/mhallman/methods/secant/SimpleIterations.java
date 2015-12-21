@@ -40,6 +40,7 @@ public class SimpleIterations {
 			functionResult = function.getTangentValue(startingPoint);
 			startingPoint = round(functionResult,4);
 			System.out.println("Kolejny wynik: "+startingPoint);
+			i++;
 		}while(mainZeroValue-startingPoint>0.0001);
 		System.out.println("Potrzeba by³o tyle: "+i+" obrotów");
 	}

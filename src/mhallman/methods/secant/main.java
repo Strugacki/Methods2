@@ -52,15 +52,6 @@ public class main {
 		System.out.println("Wybrane miejsce zerowe: "+mainZeroValue);
 		System.out.println();
 		System.out.print("Podaj iloœæ obrotów: ");
-		if(in.hasNextInt()){
-			numberOfLoop=in.nextInt();
-			secant.setIterations(numberOfLoop);
-			simpleIter.setStepNumber(numberOfLoop);
-			tangent.setStepNumber(numberOfLoop);
-		}else{
-			System.err.println("Podano nieprawid³ow¹ wartoœæ!!");
-			System.exit(0);
-		}
 		
 		
 		System.out.println("Przedzia³‚ to <"+secant.getPs()+","+secant.getPk()+">");
