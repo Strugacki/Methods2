@@ -6,8 +6,11 @@ public class Secant {
 	private double pk;//ending point
 	double fx1;
 	double fx0;
-	double zeroValue=-1.8414;
-	double zeroValue1=1.1462;
+	double x2;
+	int i=0;
+	double zeroValue= -1.8414;
+	double zeroValue1= 1.1462;
+	double mainZeroValue=0;
 	private Function function;
 	private int iterations;
 	private double nextValues[];
@@ -65,14 +68,28 @@ public class Secant {
 	public void solveSecant(){
 		double x0=this.getPs();
 		double x1=this.getPk();
-		nextValues = new double[this.getIterations()];
-		for(int i=0;i<this.getIterations();i++){
-			double x2=this.nextValue(x0,x1);
+		if(zeroValue>=x0 && zeroValue<=x1){
+			mainZeroValue = zeroValue;
+		}
+		else if(zeroValue1>=x0 && zeroValue1<=x1 && mainZeroValue!=0){
+			System.out.println("B³¹d");
+			System.exit(0);
+		}else if(zeroValue1>=x0 && zeroValue1<=x1){
+			mainZeroValue = zeroValue1;
+		}
+		System.out.println("Wybrane miejsce zerowe: "+mainZeroValue);
+		//while(mainZeroValue-wysranyWynikZFora>0.1)
+		nextValues = new double[100];
+		//for(int i=0;i<this.getIterations();i++){
+		do{
+			x2=this.nextValue(x0,x1);
 			x0=x1;
 			x1=x2;
 			nextValues[i]=x2;
+			i++;
 			System.out.println("Kolejny wynik: "+x2);
-		}
+		}while(mainZeroValue-x2>0.1);
+		System.out.println("Potrzeba by³o tyle: "+i+" obrotów");
 	}
 	
 	
