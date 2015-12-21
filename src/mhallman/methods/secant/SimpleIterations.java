@@ -27,11 +27,11 @@ public class SimpleIterations {
 		this.startingPoint = startingPoint;
 	}	
 	public void solveIteration() {
-		for(int i=0; i<stepNumber; i++) {
-			double x = this.getStartingPoint();			
-			functionResult = function.value(x);
-			x = functionResult;
-			System.out.println("Kolejny wynik: "+x);
+		for(int i=0; i<stepNumber; i++) {	
+			
+			functionResult = function.getTangentValue(startingPoint);
+			startingPoint = functionResult;
+			System.out.println("Kolejny wynik: "+startingPoint);
 		}
 	}
 }
